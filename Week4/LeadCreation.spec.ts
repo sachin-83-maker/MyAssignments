@@ -31,6 +31,17 @@ console.log(await page.locator("#viewLead_companyName_sp").textContent());
 await expect (page.locator("#viewLead_firstName_sp")).toContainText("sachin");
 await expect (page.locator("#viewLead_lastName_sp")).toContainText("kamley");
 await expect (page.locator("#viewLead_statusId_sp")).toContainText("Assigned");
+const company = await page.locator('#viewLead_companyName_sp').textContent();
+  const first = await page.locator('#viewLead_firstName_sp').textContent();
+  const last = await page.locator('#viewLead_lastName_sp').textContent();
+  const companyText = await page.locator('#viewLead_companyName_sp').textContent();
+  const firstNameText = await page.locator('#viewLead_firstName_sp').textContent();
+  const lastNameText = await page.locator('#viewLead_lastName_sp').textContent();
 
+  // Actual hard assertions: these check only once
+  expect(companyText).toContain('TCS');
+  expect(firstNameText).toBe('sachin');
+  expect(lastNameText).toBe('kamley');
+  
 
 });
